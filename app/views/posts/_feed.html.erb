@@ -1,0 +1,10 @@
+<% if @feed_items.any? %>
+  <ol class="posts">
+    <li id="post-<%= post.id %>">
+  <span class="content"><%= post.caption %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+</li>
+  </ol>
+<% end %>

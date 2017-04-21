@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+    <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+<% end %>
+
+
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Caption</th>
+      <th>Images</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+      <td><%= post.user.username %></td>
+        <td><%= post.caption %></td>
+          <% if current_user.like?(post) %>
+            <%= button_to "Unlike", unlike_path(post_id: post.id), remote: true, method: :delete  %>
+          <% else %>
+            <%= button_to "like", like_path(post_id: post.id), remote: true  %>
+        <% end %>
+        <%= post.get_likes_count %>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
