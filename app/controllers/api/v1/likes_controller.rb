@@ -8,7 +8,7 @@ def like
             success: true,
             info: "liked",
     }
-  
+  redirect_to(:back)
 end
 
 def unlike
