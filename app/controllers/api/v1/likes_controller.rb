@@ -6,7 +6,7 @@ def like
   @user.like!(@post)
 	render json: {
             success: true,
-            info: "success"
+            info: "success",
     }
   
 end
