@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, :likes
+  resources :posts
   resources :relationships, only: [:create, :destroy]
   root "posts#index"
   get 'user/:id' => "pages#profile"
