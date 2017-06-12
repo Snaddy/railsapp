@@ -8,7 +8,6 @@ def like
             success: true,
             info: "liked",
     }
-  redirect_to(:back)
 end
 
 def unlike
@@ -20,7 +19,6 @@ def unlike
             success: true,
             info: "failed"
     }
-  redirect_to(:back)
 end
 
 end
