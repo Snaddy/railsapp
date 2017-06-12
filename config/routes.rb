@@ -26,8 +26,8 @@ end
     get 'users' => 'pages#search', :as => 'search'
     get 'posts' => 'pages#profile', :as => 'profile'
 
-    match 'like', to: 'likes#create', via: :post
-    match 'unlike', to: 'likes#destroy', via: :delete
+    match 'like', to: 'likes#like', via: :post
+    match 'unlike', to: 'likes#unlike', via: :delete
 
   end
   end
