@@ -16,9 +16,6 @@ end
   namespace :api, defaults: { format: :json } do
   namespace :v1 do
     devise_scope :user do
-
-      resources :likes
-
       post 'registrations' => 'registrations#create', :as => 'register'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
@@ -29,8 +26,8 @@ end
     get 'users' => 'pages#search', :as => 'search'
     get 'posts' => 'pages#profile', :as => 'profile'
 
-    match 'like', to: 'likes#create', via: :post
-    match 'unlike', to: 'likes#destroy', via: :delete
+    post 'likes' => 'likes#create', :as => 'like'
+    delete 'unlikes' => 'likes#destroy', :as => 'unlike'
 
   end
   end
