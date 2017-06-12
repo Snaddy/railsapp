@@ -6,7 +6,7 @@ def like
   @user.like!(@post)
 	render json: {
             success: true,
-            info: "success",
+            info: "liked",
     }
   
 end
@@ -18,7 +18,7 @@ def unlike
   @like.destroy!
   	render json: {
             success: true,
-            info: "failed"
+            info: "disliked"
     }
 end
 
