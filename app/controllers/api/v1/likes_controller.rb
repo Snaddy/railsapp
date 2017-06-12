@@ -1,6 +1,6 @@
 class Api::V1::LikesController < ApplicationController
 
-def like
+def create
   @user = current_user
   @post = Post.find(params[:post_id])
   @user.like!(@post)
@@ -10,7 +10,7 @@ def like
     }
 end
 
-def unlike
+def destroy
   @user = current_user
   @like = @user.likes.find_by_post_id(params[:post_id])
   @post = Post.find(params[:post_id])
