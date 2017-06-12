@@ -22,9 +22,9 @@
       <td><%= post.user.username %></td>
         <td><%= post.caption %></td>
           <% if current_user.like?(post) %>
-            <%= button_to "Unlike", unlike_path(post_id: post.id), remote: true, method: :delete  %>
+            <%= button_to "Unlike", unlike_path(post_id: @post.id), remote: true, method: :delete  %>
           <% else %>
-            <%= button_to "like", like_path(post_id: post.id), remote: true  %>
+            <%= button_to "like", like_path(post_id: @post.id), remote: true  %>
         <% end %>
         <%= post.get_likes_count %>
         <td><%= link_to 'Show', post %></td>
