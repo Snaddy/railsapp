@@ -18,5 +18,7 @@ class Post < ActiveRecord::Base
 		end
 	end
 
-
+	def like?
+		current_user.likes.exists?(Post.find(params[:post_id]))
+  	end
 end
