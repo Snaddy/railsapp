@@ -2,8 +2,8 @@ class Api::V1::LikesController < ApplicationController
 
 def like
   @user = current_user
-  @post = Post.find(params[:post_id])
-  @user.like!(@post)
+  @posts = current_user.feed.order('created_at DESC')
+  @user.like!(@posts)
 	render json: {
             success: true,
             info: "liked",
@@ -14,7 +14,7 @@ end
 def unlike
   @user = current_user
   @like = @user.likes.find_by_post_id(params[:post_id])
-  @post = Post.find(params[:post_id])
+  @posts = current_user.feed.order('created_at DESC')
   @like.destroy!
   	render json: {
             success: true,
