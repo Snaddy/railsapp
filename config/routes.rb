@@ -16,6 +16,9 @@ end
   namespace :api, defaults: { format: :json } do
   namespace :v1 do
     devise_scope :user do
+
+      resources :likes
+
       post 'registrations' => 'registrations#create', :as => 'register'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
