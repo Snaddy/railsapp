@@ -25,6 +25,10 @@ end
 
     get 'users' => 'pages#search', :as => 'search'
     get 'posts' => 'pages#profile', :as => 'profile'
+
+    post 'likes' => 'likes#like', :as => 'like'
+    delete 'unlikes' => 'likes#unlike', :as => 'unlike'
+
   end
   end
 end
