@@ -1,4 +1,4 @@
-<% if current_user.heart?(post) %>
+<% if current_user.like?(post) %>
   <%= button_to "unlike", unlike_path(post_id: post.id), remote: true, method: :delete  %>
 <% else %>
   <%= button_to "like", like_path(post_id: post.id), remote: true  %>
