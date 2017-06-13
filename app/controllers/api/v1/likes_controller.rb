@@ -2,7 +2,7 @@ class Api::V1::LikesController < ApplicationController
 
 def like
   @user = current_user
-  @post = @user.posts
+  @post = Post.find(params[:post_id])
   @user.like!(@post)
 	render json: {
             success: true,
@@ -13,7 +13,7 @@ end
 def unlike
   @user = current_user
   @like = @user.likes.find_by_post_id(params[:post_id])
-  @post = @user.posts
+  @post = Post.find(params[:post_id])
   @like.destroy!
   	render json: {
             success: true,
