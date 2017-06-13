@@ -21,7 +21,9 @@
       <tr>
       <td><%= post.user.username %></td>
         <td><%= post.caption %></td>
-        
+         <%= div_for post do %>
+          <%= render "buttons", locals: { post: post } %>
+        <% end %>
         <%= post.get_likes_count %>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
