@@ -3,8 +3,8 @@ class Api::V1::PostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    Post.find(params[:id]) = post_id
     @posts = current_user.feed.order('created_at DESC')
+    @posts.current_user = current_user
     @user = current_user
     respond_to do |format|
       format.json do

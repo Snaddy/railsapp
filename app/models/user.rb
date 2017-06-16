@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
   acts_as_paranoid
-  attr_accessor :post_id
+  attr_accessor :current_user
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
   # returns true of false if a post is liked by user
   def like?(post=nil)
-    post ||= post_id
+    post ||= post
     self.likes.find_by_post_id(post.id)
   end
 
