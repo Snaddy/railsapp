@@ -7,15 +7,13 @@ class Api::V1::PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @likes = current_user.like?(@post)
     respond_to do |format|
-      format.json {
+      format.json do
         render json: {
-          @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} })
+          post: @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} }),
+          likes: @likes
         }
-      }
+      end
     end
-    render json: {
-            likes: @likes
-      }
   end
 
   def create
@@ -40,3 +38,5 @@ class Api::V1::PostsController < ApplicationController
       params.permit(:speed, :caption, {images: []})
     end
 end
+
+@posts.to_json(methods: :get_likes_count, include: { user: { only: :username} })
