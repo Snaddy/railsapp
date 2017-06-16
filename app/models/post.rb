@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	attr_accessor :current_user
 	validates_presence_of :images, :speed
 	has_many :users, through: :likes
 	has_many :likes, dependent: :destroy
