@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessor :post
   acts_as_token_authenticatable
   acts_as_paranoid
   mount_uploader :avatar, AvatarUploader
@@ -54,9 +53,8 @@ class User < ActiveRecord::Base
   end
 
   # returns true of false if a post is liked by user
-  def like?(post=nil)
-    post||= post
-    self.likes.post
+  def like?(post)
+    self.likes.find_by_post_id(post.id)
   end
 
   def search(search)
