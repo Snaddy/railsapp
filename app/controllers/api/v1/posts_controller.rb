@@ -7,8 +7,11 @@ class Api::V1::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @likes = current_user.like?(@post)
     respond_to do |format|
-      format.json do
-        render json: {@posts.to_json(methods: :get_likes_count, include: { user: { only: :username, methods: :like?} }), "success"}
+      format.json {
+        render json: {@posts.to_json(methods: :get_likes_count, include: { user: { only: :username, methods: :like?} }),
+          :likes => @likes
+        }
+      }
       end
     end
   end
