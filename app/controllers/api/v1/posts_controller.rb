@@ -14,7 +14,6 @@ class Api::V1::PostsController < ApplicationController
           :likes => @likes
         }
       }
-      end
     end
   end
 
