@@ -12,7 +12,7 @@ end
 
 def unlike
   @user = current_user
-  @like = @user.likes.find_by_post_id(params[:post_id])
+  @like = @user.likes.find_by(post_id: params[:post_id])
   @post = Post.find_by(id: params[:id])
   @like.destroy!
   	render json: {
