@@ -42,7 +42,6 @@ class User < ActiveRecord::Base
 
   # creates a new like row with post_id and user_id
   def like!(post)
-    post||= post
     self.likes.create!(post_id: post.id)
   end
 
