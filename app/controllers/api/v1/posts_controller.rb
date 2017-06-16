@@ -4,8 +4,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = current_user.feed.order('created_at DESC')
-    @post = Post.find_by(id: params[:id])
-    @likes = current_user.like?(@post)
+    @likes = current_user.like?(@posts)
     respond_to do |format|
       format.json do
         render json: {
@@ -38,5 +37,3 @@ class Api::V1::PostsController < ApplicationController
       params.permit(:speed, :caption, {images: []})
     end
 end
-
-@posts.to_json(methods: :get_likes_count, include: { user: { only: :username} })
