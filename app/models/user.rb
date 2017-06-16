@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
+  attr_accessor :post
   acts_as_token_authenticatable
   acts_as_paranoid
-  attr_accessor :current_user
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
 
   # creates a new like row with post_id and user_id
   def like!(post)
+    post||= post
     self.likes.create!(post_id: post.id)
   end
 
@@ -53,10 +54,10 @@ class User < ActiveRecord::Base
   end
 
   # returns true of false if a post is liked by user
-  #def like?(post=nil)
-   # post ||= post
-    #self.likes.find_by_post_id(post.id)
-  #end
+  def like?(post=nil)
+    post||= post
+    self.likes.post
+  end
 
   def search(search)
     find(:all, conditions: ['username LIKE ? OR name LIKE ?', "%#{search}%"])

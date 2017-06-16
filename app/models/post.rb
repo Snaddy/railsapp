@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-	attr_accessor :current_user
 	validates_presence_of :images, :speed
 	has_many :users, through: :likes
 	has_many :likes, dependent: :destroy
@@ -18,9 +17,4 @@ class Post < ActiveRecord::Base
 			errors.add(:images, "can't contain more than 60 images")
 		end
 	end
-
-	def like?(user=nil)
-    user ||= current_user
-    current_user.likes.self
-  end
 end

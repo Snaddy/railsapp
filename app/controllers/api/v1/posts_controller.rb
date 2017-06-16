@@ -4,9 +4,10 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = current_user.feed.order('created_at DESC')
+    @posts.post = post
     respond_to do |format|
       format.json do
-        render :json => @posts.to_json(methods: [:get_likes_count, :like?], include: { user: { only: :username} })
+        render :json => @posts.to_json(methods: [:get_likes_count, :like?], include: { user: { only: :username, methods: :like?} })
       end
     end
   end
