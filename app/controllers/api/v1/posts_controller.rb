@@ -1,14 +1,14 @@
 class Api::V1::PostsController < ApplicationController
   
   before_filter :authenticate_user!
+  Post.current_user = current_user
 
   def index
     @posts = current_user.feed.order('created_at DESC')
-    @posts.current_user = current_user
     @user = current_user
     respond_to do |format|
       format.json do
-        render :json => @posts.to_json(methods: :get_likes_count, include: { user: { only: :username, methods: :like?} })
+        render :json => @posts.to_json(methods: [:get_likes_count, :like?], include: { user: { only: :username} })
       end
     end
   end
