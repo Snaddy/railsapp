@@ -7,7 +7,8 @@ class Api::V1::PostsController < ApplicationController
      respond_to do |format|
       format.json do
         render :json => {
-          post: @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} }).merge(current_user.likes.where(post_id: @posts.map(&:id))
+          post: @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} }),
+          likes: current_user.likes.where(post_id: @posts.map(&:id))
       }
       end
     end
