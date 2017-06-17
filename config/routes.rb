@@ -21,7 +21,7 @@ end
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
     end
-    get 'posts' => 'posts#index', :as => 'posts'
+    get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
 
     get 'users' => 'pages#search', :as => 'search'
