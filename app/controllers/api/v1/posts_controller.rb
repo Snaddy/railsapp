@@ -4,11 +4,13 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = current_user.feed.order('created_at DESC')
+    @post = Post.find_by(id: params[:id])
+    @likes = current_user.likes(@post)
      respond_to do |format|
       format.json do
         render :json => {
           post: @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} }),
-          likes: current_user.likes.where(post_id: @posts.map(&:id).pluck(:post_id))
+          likes: @likes
       }
       end
     end
