@@ -15,6 +15,7 @@ end
 #api
   namespace :api, defaults: { format: :json } do
   namespace :v1 do
+    resources :posts
     devise_scope :user do
       post 'registrations' => 'registrations#create', :as => 'register'
       post 'sessions' => 'sessions#create', :as => 'login'
