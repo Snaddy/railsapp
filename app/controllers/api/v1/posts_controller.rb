@@ -6,9 +6,8 @@ class Api::V1::PostsController < ApplicationController
     @posts = current_user.feed.order('created_at DESC')
     respond_to do |format|
       format.json do
-        render json: {
+        render json:
           @posts.to_json(methods: :get_likes_count, include: { user: { only: :username} })
-        }
       end
     end
   end
