@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   # returns true of false if a post is liked by user
   def like?(post)
-    self.likes.find_by(post_id: post.id)
+    self.likes.find_by(post_id: params[:post_id])
   end
 
   def search(search)
