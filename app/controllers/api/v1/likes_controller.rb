@@ -17,7 +17,7 @@ def unlike
   @like.destroy!
   	render json: {
             success: true,
-            info: "failed"
+            info: "unliked"
     }
 end
 
