@@ -14,7 +14,7 @@ def unlike
   @user = current_user
   @like = @user.likes.find_by_post_id(params[:post_id])
   @post = Post.find(params[:post_id])
-  @like.destroy!
+  @like.unlike!(@post)
   	render json: {
             success: true,
             info: "unliked"
