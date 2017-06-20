@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 
   # destroys a like with matching post_id and user_id
   def unlike!(post)
-    like = self.likes.find_by(post_id: params[:post_id])
+    like = self.likes.find_by_post_id(post.id)
     like.destroy!
   end
 
