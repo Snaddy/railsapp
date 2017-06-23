@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	attr_accessor :current_user
 	validates_presence_of :images, :speed
 	has_many :users, through: :likes
 	has_many :likes, dependent: :destroy
@@ -18,7 +19,8 @@ class Post < ActiveRecord::Base
 		end
 	end
 
-	def like?
-   		User.likes.where(post_id: id)
+	def like?(user=nil)
+		user || = current_user
+   		user.likes.where(post_id: post_id)
   	end 
 end
