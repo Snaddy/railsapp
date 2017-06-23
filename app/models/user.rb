@@ -52,9 +52,6 @@ class User < ActiveRecord::Base
   end
 
   # returns true of false if a post is liked by user
-  def like?
-    Post.likes.where(:user_id => user_id).exists?
-  end
 
   def search(search)
     find(:all, conditions: ['username LIKE ? OR name LIKE ?', "%#{search}%"])
