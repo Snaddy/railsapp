@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def image_count
-		if images.size > 60
+		if images.size > 61
 			errors.add(:images, "can't contain more than 60 images")
 		end
 	end
