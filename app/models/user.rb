@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   # returns true of false if a post is liked by user
   def like?
-    curren_user.likes.exists?(params[:id])
+   self.likes.exists?(params[:id])
   end 
 
   def search(search)
