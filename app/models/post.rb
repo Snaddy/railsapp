@@ -19,6 +19,6 @@ class Post < ActiveRecord::Base
 	end
 
 	def like?
-   		User.joins(:likes).where(:post_id => id)
+   		User.likes.where(post_id: id)
   	end 
 end
