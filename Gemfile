@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rabl'
+
 gem 'fog-aws'
 
 gem "paranoia", "~> 2.2"
