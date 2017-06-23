@@ -1,7 +1,7 @@
 collection @posts
-attributes :id, :caption, :speed, :images
+attributes :id, :speed, :caption, :images
 
-child (:user) {attributes :id, :username}
+child (:user) {attributes :username}
 
 node(:liked) {|post| post.liked_by?(@user)}
 
