@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   end
 
   # returns true of false if a post is liked by user
-  def like?(post)
+  def like?
    Post.likes.where(user_id: self.id)
   end 
 
