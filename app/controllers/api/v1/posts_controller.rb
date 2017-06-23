@@ -8,7 +8,7 @@ class Api::V1::PostsController < ApplicationController
      respond_to do |format|
       format.json do
         render :json => {
-          posts: @posts.as_json(methods: [:get_likes_count, :like?], include: { user: { only: :username} }),
+          posts: @posts.as_json(methods: :get_likes_count, include: { user: { only: :username, methods: :like?} })
       }
       end
     end
