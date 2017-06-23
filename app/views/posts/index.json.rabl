@@ -1,9 +1,7 @@
 collection @posts
 attributes :id, :caption, :speed, :images
 
-child :user do
- 	attributes :id, :username
-end
+child (:user) {attributes :id, :username}
 
 node(:liked) {|post| post.liked_by?(@user)}
 
