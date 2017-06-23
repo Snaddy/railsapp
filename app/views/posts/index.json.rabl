@@ -1,4 +1,4 @@
-collections @posts
+collection @posts
 attributes :id, :caption, :speed, :images
 
 child :user do
