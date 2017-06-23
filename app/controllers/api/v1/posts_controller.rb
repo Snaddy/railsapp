@@ -1,10 +1,10 @@
 class Api::V1::PostsController < ApplicationController
   
   before_filter :authenticate_user!
-  respond_to :json
 
   def index
     @posts = current_user.feed.order('created_at DESC')
+    render 'posts/index'
   end
 
   def create
