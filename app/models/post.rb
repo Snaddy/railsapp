@@ -17,8 +17,4 @@ class Post < ActiveRecord::Base
 			errors.add(:images, "can't contain more than 60 images")
 		end
 	end
-
-	def like?
-		User.likes.where(:post_id => post_id).exists?
-	end	
 end
