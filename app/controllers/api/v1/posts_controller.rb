@@ -3,6 +3,7 @@ class Api::V1::PostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @user = current_user
     @posts = current_user.feed.order('created_at DESC')
     render 'posts/index'
   end
