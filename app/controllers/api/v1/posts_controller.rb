@@ -4,7 +4,6 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = current_user.feed.order('created_at DESC')
-    @posts.current_user = current_user
      respond_to do |format|
       format.json do
         render :json => {
