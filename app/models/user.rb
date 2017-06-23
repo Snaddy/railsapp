@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, password_length: 6..128
   
-  has_many :posts, dependent: :destroy
+  has_many :posts, through: :likes, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   # returns true of false if a post is liked by user
   def like?
-    Post.likes.where.(user_id: id)
+    current
   end
 
   def search(search)
