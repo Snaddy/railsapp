@@ -5,7 +5,7 @@ class Api::V1::PostsController < ApplicationController
   def index
     @user = current_user
     @posts = current_user.feed.order('created_at DESC')
-    render 'index/posts'
+    render 'posts/index.json.rabl'
   end
 
   def create
