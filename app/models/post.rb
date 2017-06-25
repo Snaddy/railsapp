@@ -19,6 +19,6 @@ class Post < ActiveRecord::Base
 	end
 
 	def liked_by?(user)
-		self.likes.where(user_id: user.id)
+		self.likes.find_by(user_id: user.id)
 	end
 end
