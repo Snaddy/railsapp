@@ -5,7 +5,6 @@ class Api::V1::SessionsController < Devise::SessionsController
       user = warden.authenticate!(params[:user])
       sign_in(resource_name, user)
 
-      current_user.authentication_token = nil
       current_user.save
 
       respond_to do |format|
