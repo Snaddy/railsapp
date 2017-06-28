@@ -1,5 +1,7 @@
 class Api::V1::LikesController < ApplicationController
 
+before_action :authenticate_user!
+
 def like
   @user = current_user
   @post = Post.find_by(id: params[:id])
