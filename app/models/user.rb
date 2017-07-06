@@ -29,7 +29,19 @@ class User < ActiveRecord::Base
 
   #is following
   def following?(other_user)
-    following.include?(other_user)
+    !!self.following.find_by(user_id: other_user.id)
+  end
+
+  def post_count
+    self.posts.count
+  end
+
+  def following_count
+    self.following.count
+  end
+
+  def followers_count
+    self.followers.count
   end
 
   #only get posts from self and followers

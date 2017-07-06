@@ -25,10 +25,14 @@ end
     post 'posts' => 'posts#create', :as => 'create_post'
 
     get 'users' => 'pages#search', :as => 'search'
-    get 'posts' => 'pages#profile', :as => 'profile'
 
     match 'like/:id', to: 'likes#like', via: :post
     match 'unlike/:id', to: 'likes#unlike', via: :delete
+
+    match 'relationships/:id', to: 'relationships#create', via: :post
+    match 'relationships/:id', to: 'relationships#destroy', via: :delete
+
+    match 'users/:id', to: 'pages#profile', via: :get
 
   end
   end
