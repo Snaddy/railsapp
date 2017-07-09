@@ -1,5 +1,5 @@
 collection @posts
-attributes :id, :speed, :caption, :images
+attributes :id, :speed, :caption, :images, :created_at
 
 child (:user) {attributes :username, :id}
 
