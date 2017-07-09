@@ -11,7 +11,7 @@ before_action :authenticate_user!
 	def self
 		@user = current_user
 		@posts = @user.posts
-		render 'pages/profile'
+		render 'pages/self'
 	end
 
 	def search
