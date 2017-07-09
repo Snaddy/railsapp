@@ -17,4 +17,8 @@ class Post < ActiveRecord::Base
 			errors.add(:images, "can't contain more than 60 images")
 		end
 	end
+
+	def post_time
+		time_ago_in_words(self.created_at)
+	end
 end
