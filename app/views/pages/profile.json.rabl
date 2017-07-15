@@ -1,6 +1,6 @@
 object @user
 
-attributes *User.column_names
+attributes :id, :username, :name, :avatar, :bio
 
 child @posts do
 	attributes :id, :images
