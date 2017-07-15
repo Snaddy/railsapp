@@ -13,9 +13,20 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       end
     end
 
+    def update
+
+    end
+
     private
 
     def user_params
       params.require(:user).permit(:email, :username, :name, :password)
     end
+
+    protected
+
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+
 end

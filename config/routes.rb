@@ -18,6 +18,7 @@ end
     resources :posts
     devise_scope :user do
       post 'registrations' => 'registrations#create', :as => 'register'
+      put 'update' => 'registerations#update', :as => 'update_user'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
     end
@@ -29,9 +30,11 @@ end
     get 'profile' => 'pages#self', :as => 'self'
 
     match 'like/:id', to: 'likes#like', via: :post
+
     match 'unlike/:id', to: 'likes#unlike', via: :delete
 
     match 'relationships/:id', to: 'relationships#create', via: :post
+
     match 'relationships/:id', to: 'relationships#destroy', via: :delete
 
     match 'users/:id', to: 'pages#profile', via: :get
