@@ -27,9 +27,9 @@ end
 
     get 'users/:search' => 'pages#search', :as => 'search'
 
-    get 'users/:username_search' => 'pages#username_search', :as => 'username_search'
+    get 'username/:username_search' => 'pages#username_search', :as => 'username_search'
 
-    get 'users/:email_search' => 'pages#email_search', :as => 'email_search'
+    get 'email/:email_search' => 'pages#email_search', :as => 'email_search'
 
     get 'profile' => 'pages#self', :as => 'self'
 
