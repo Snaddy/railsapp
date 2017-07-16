@@ -25,7 +25,11 @@ end
     get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
 
-    get 'users' => 'pages#search', :as => 'search'
+    get 'users/:search' => 'pages#search', :as => 'search'
+
+    get 'users/:username_search' => 'pages#username_search', :as => 'username_search'
+
+    get 'users/:email_search' => 'pages#email_search', :as => 'email_search'
 
     get 'profile' => 'pages#self', :as => 'self'
 

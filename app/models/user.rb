@@ -72,6 +72,14 @@ class User < ActiveRecord::Base
     find(:all, conditions: ['username LIKE ? OR name LIKE ?', "%#{search}%"])
   end
 
+  def username_exists?(username)
+    !!User.exists?(username: username)
+  end
+
+  def email_exists?(email)
+    !!User.exists?(email: email)
+  end
+
   #validation for user data
   validates_presence_of :username
   validates_presence_of :name

@@ -16,7 +16,16 @@ before_action :authenticate_user!
 
 	def search
 		@results = User.search(params[:search])
-		render @results
+		render json: @results
 	end
 
+	def username_search
+		@result = User.username_exists?(params[:username_search])
+		render json: @result
+	end
+
+	def email_search
+		@result = User.email_exists?(params[:email_search])
+		render json: @result
+	end
 end
