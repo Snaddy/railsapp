@@ -21,11 +21,15 @@ before_action :authenticate_user!
 
 	def username_search
 		@result = User.username_exists?(params[:username_search])
-		render json: @result
+		render json: {
+			status: @result
+		}
 	end
 
 	def email_search
 		@result = User.email_exists?(params[:email_search])
-		render json: @result
+		render json: {
+			status: @result
+		}
 	end
 end
