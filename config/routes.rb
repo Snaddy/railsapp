@@ -29,7 +29,7 @@ end
 
     get 'username/:username_search' => 'pages#username_search', :as => 'username_search'
 
-    get 'email/:email_search' => 'pages#email_search', :as => 'email_search'
+    get 'email/:email_search' => 'pages#email_search', :as => 'email_search', :constraints => { :email_search => /[\w+\.]+/ }
 
     get 'profile' => 'pages#self', :as => 'self'
 
