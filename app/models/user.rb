@@ -87,6 +87,6 @@ class User < ActiveRecord::Base
   validates_length_of :bio, :maximum => 250, :allow_blank => true
   validates_uniqueness_of :username, :case_sensitive => false, message: "This username has already been taken"
   validates_format_of :username, with: /\A[a-zA-Z0-9_]+\Z/
-  validates :username, length: {in: 3..16}
+  validates :username, length: {in: 3..20}
   validates :name, length: {in: 1..30}
 end

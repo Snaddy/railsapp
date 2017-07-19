@@ -25,7 +25,7 @@ end
     get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
 
-    get 'users/:search' => 'pages#search', :as => 'search'
+    get 'search/:search' => 'pages#search', :as => 'search'
 
     get 'username/:username_search' => 'pages#username_search', :as => 'username_search'
 
