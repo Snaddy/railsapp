@@ -27,7 +27,7 @@ end
 
     get 'search/:search' => 'pages#search', :as => 'search'
 
-    get 'username/:username_search' => 'pages#username_search', :as => 'username_search'
+    get 'username/:username_search' => 'pages#username_search', :as => 'username_search', :constraints => { :username_search => /.*/ }
 
     get 'email/:email_search' => 'pages#email_search', :as => 'email_search', :constraints => { :email_search => /.*/ }
 
