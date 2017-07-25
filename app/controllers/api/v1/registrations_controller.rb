@@ -1,5 +1,7 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
+skip_before_filter :authentication_scope!
+
     def create
       @user = User.create(user_params)
       if @user.save
