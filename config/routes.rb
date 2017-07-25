@@ -18,7 +18,7 @@ end
     resources :posts
     devise_scope :user do
       post 'registrations' => 'registrations#create', :as => 'register'
-      put 'update' => 'registerations#update', :as => 'update_user'
+      put 'update' => 'registrations#update', :as => 'update_user'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
     end
