@@ -1,6 +1,6 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
-
- before_action :authenticate_user!
+  
+  before_action :authenticate_user!
 
     def create
       @user = User.create(user_params)
@@ -16,9 +16,25 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       end
     end
 
+    def update
+      @user = current_user
+      if @user.update(user_params)
+        render json: "success"
+      else
+        render json: "failed"
+      end
+    end
+
     private
 
     def user_params
       params.require(:user).permit(:email, :username, :name, :password, :bio)
     end
+
+    protected
+
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+
 end
