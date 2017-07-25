@@ -1,6 +1,6 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
-skip_before_action :vauthenticate_scope!, only: [:update]
+  before_action :authenticate_user!, :only [:update]
 
     def create
       @user = User.create(user_params)
@@ -8,6 +8,8 @@ skip_before_action :vauthenticate_scope!, only: [:update]
         sign_in(@user)
         render json: { status: "created",
                       info: "Registered",
+                      auth_token: current_user.authentication_token,
+                      email: current_user.email,
                       data: { user: resource }}
       else
         render json: { status: @user.errors.full_messages }
