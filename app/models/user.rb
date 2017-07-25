@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_length_of :bio, :maximum => 250, :allow_blank => true
   validates_uniqueness_of :username, :case_sensitive => false, message: "This username has already been taken"
-  validates_format_of :username, with: /^(?!.*_\.)(?!.*\._)([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/, multiline: true
+  validates_format_of :username, with: /^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/, multiline: true
   validates :username, length: {in: 1..20}
   validates :name, length: {in: 1..30}
 end
