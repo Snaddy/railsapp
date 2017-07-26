@@ -1,6 +1,6 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
-before_filter :authenticate_user!
+skip_before_filter :authenticate_scope!, :only => [:update]
 
     def create
       @user = User.create(user_params)
