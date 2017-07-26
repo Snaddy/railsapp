@@ -15,7 +15,8 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     end
 
     def update
-      sign_in(current_user, scope: :user)
+      @user = current_user
+      warden.authenticate!(@user)
       if @user.update(user_params)
         render json: "success"
       else
