@@ -17,6 +17,7 @@ skip_before_filter :authenticate_scope!, :only => [:update]
     end
 
     def update
+      @user = current_user
       if @user.update(user_params)
         render json: "success"
       else
