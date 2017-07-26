@@ -1,5 +1,7 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
+before_filter :authenticate_user!
+
     def create
       @user = User.create(user_params)
       if @user.save
@@ -15,7 +17,11 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     end
 
     def update
-      super
+      if @user.update(user_params)
+        render json: "success"
+      else
+        render json: "failed"
+      end
     end
 
     private
