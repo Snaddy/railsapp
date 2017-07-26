@@ -1,6 +1,6 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
-skip_before_filter :authenticate_scope!, :only => [:update]
+skip_before_action :authenticate_scope!, :only => [:update]
 
     def create
       @user = User.create(user_params)
@@ -17,6 +17,7 @@ skip_before_filter :authenticate_scope!, :only => [:update]
     end
 
     def update
+      warden.authenticate!(auth_params)
       @user = current_user
       if @user.update(user_params)
         render json: { result: "success"}
@@ -30,5 +31,11 @@ skip_before_filter :authenticate_scope!, :only => [:update]
     def user_params
       params.require(:user).permit(:email, :username, :name, :password, :bio)
     end
+
+    def auth_params
+      params.require(:user).permit(:email, :username, :name, :current_password, :bio)
+    end
+
+
 
 end
