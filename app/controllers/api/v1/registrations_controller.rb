@@ -17,7 +17,6 @@ skip_before_action :authenticate_scope!, :only => [:update]
     end
 
     def update
-      warden.authenticate!(auth_params)
       @user = current_user
       if @user.update(user_params)
         render json: { result: "success"}
