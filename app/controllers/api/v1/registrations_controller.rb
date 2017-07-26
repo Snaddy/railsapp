@@ -15,13 +15,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     end
 
     def update
-      @user = current_user
-      warden.authenticate!(@user)
-      if @user.update(user_params)
-        render json: "success"
-      else
-        render json: "failed"
-      end
+      super
     end
 
     private
