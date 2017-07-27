@@ -18,14 +18,10 @@ skip_before_action :authenticate_scope!, :only => [:update]
 
     def update
       @user = current_user
-      if @user.valid_password?(user_params[:password])
-        if @user.update(user_params)
-          render json: { result: "success"}
-        else
-          render json: { result: "error"}
-        end
+      if @user.update(update_params)
+         render json: { result: "success"}
       else
-        render json: { result: "invalid"}
+        render json: { result: "error"}
       end
     end
 
@@ -33,6 +29,10 @@ skip_before_action :authenticate_scope!, :only => [:update]
 
     def user_params
       params.require(:user).permit(:email, :username, :name, :password, :bio)
+    end
+
+    def update_params
+      params.require(:user).permit(:email, :username, :name, :bio)
     end
 
 end
