@@ -1,6 +1,7 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
 
 skip_before_action :authenticate_scope!, :only => [:update]
+before_action :authenticate_user!, :only => [:update]
 
     def create
       @user = User.create(user_params)
@@ -18,11 +19,11 @@ skip_before_action :authenticate_scope!, :only => [:update]
 
     def update
       @user = current_user
-      if @user.update(update_params)
-         render json: { result: "success"}
-      else
-        render json: { result: "error"}
-      end
+        if @user.update(user_params)
+          render json: { result: "success"}
+        else
+          render json: { result: "error"}
+        end
     end
 
     private
