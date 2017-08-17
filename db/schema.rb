@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170706051942) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "speed"
+    t.string   "image"
     t.json     "images"
   end
 
