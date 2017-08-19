@@ -1,4 +1,5 @@
 class AddConfirmableToDevise < ActiveRecord::Migration
-  def change
+  def up
+  	
   end
 end
