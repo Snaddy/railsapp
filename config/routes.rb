@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :relationships, only: [:create, :destro
+  resources :relationships, only: [:create, :destroy]
   get 'user/:id' => "pages#profile"
   match 'like', to: 'likes#like', via: :post
   match 'unlike', to: 'likes#unlike', via: :delete
