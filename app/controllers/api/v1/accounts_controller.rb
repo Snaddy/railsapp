@@ -1,6 +1,7 @@
 class Api::V1::AccountsController < ApplicationController
 
-prepend_before_action :require_no_authentication
+skip_before_action :authenticate_scope!, :only => [:reset_password]
+before_action :authenticate_user!, :only => [:reset_password]
 
 	def reset_password
 		@user = User.find_by(email: params[:email])
