@@ -19,6 +19,11 @@ before_action :authenticate_user!
 		render json: @results
 	end
 
+	def reset_password
+		@user = current_user
+		@user.send_reset_password_instructions
+	end
+
 	def username_search
 		@result = User.username_exists?(params[:username_search])
 		render json: {

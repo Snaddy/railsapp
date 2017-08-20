@@ -19,10 +19,11 @@ end
       put 'update' => 'registrations#update', :as => 'update_user'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
-      post 'account/reset_password' => 'passwords#update', :as => 'password_reset'
     end
     get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
+
+    post 'account/reset_password' => 'pages#reset_password', :as => 'password_reset'
 
     get 'search/:search' => 'pages#search', :as => 'search'
 
