@@ -23,7 +23,7 @@ end
     get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
 
-    post 'account/reset_password' => 'pages#reset_password', :as => 'password_reset'
+    post 'account/reset_password/:email' => 'account#reset_password', :as => 'password_reset'
 
     get 'search/:search' => 'pages#search', :as => 'search'
 
