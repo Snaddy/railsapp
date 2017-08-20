@@ -15,23 +15,23 @@ end
   namespace :v1 do
     resources :posts
     devise_scope :user do
-      post 'registrations' => 'registrations#create', :as => 'register'
-      put 'update' => 'registrations#update', :as => 'update_user'
-      post 'sessions' => 'sessions#create', :as => 'login'
-      delete 'sessions' => 'sessions#destroy', :as => 'logout'
+      post 'registrations' => 'registrations#create'
+      put 'update' => 'registrations#update'
+      post 'sessions' => 'sessions#create'
+      delete 'sessions' => 'sessions#destroy'
     end
-    get 'posts' => 'posts#index', :as => 'posts_all'
-    post 'posts' => 'posts#create', :as => 'create_post'
+    get 'posts' => 'posts#index'
+    post 'posts' => 'posts#create'
 
-    post 'account/reset_password/:email' => 'account#reset_password', :as => 'password_reset'
+    post 'account/reset_password/:email' => 'accounts#reset_password'
 
-    get 'search/:search' => 'pages#search', :as => 'search'
+    get 'search/:search' => 'pages#search'
 
-    get 'username/:username_search' => 'pages#username_search', :as => 'username_search', :constraints => { :username_search => /.*/ }
+    get 'username/:username_search' => 'pages#username_search', :constraints => { :username_search => /.*/ }
 
-    get 'email/:email_search' => 'pages#email_search', :as => 'email_search', :constraints => { :email_search => /.*/ }
+    get 'email/:email_search' => 'pages#email_search', :constraints => { :email_search => /.*/ }
 
-    get 'profile' => 'pages#self', :as => 'self'
+    get 'profile' => 'pages#self'
 
     match 'like/:id', to: 'likes#like', via: :post
 
