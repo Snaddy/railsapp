@@ -24,7 +24,7 @@ end
 
     post 'posts' => 'posts#create'
 
-    post 'reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
+    post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
 
     get 'search/:search' => 'pages#search'
 
