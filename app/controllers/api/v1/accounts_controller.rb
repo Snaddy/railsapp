@@ -1,4 +1,4 @@
-class Api::V1::AccountsController < ActionController::Base
+class Api::V1::AccountsController < ApplicationController
 
 	def reset_password
 		@user = User.find_by(email: params[:email])
