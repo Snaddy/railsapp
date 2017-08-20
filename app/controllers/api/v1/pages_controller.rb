@@ -1,6 +1,6 @@
 class Api::V1::PagesController < ApplicationController
 
-before_action :authenticate_user!
+before_action :authenticate_user!, :except => [:reset_password]
 
 	def profile
 		@user = User.find_by(id: params[:id])
