@@ -19,6 +19,7 @@ end
       put 'update' => 'registrations#update', :as => 'update_user'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
+      post 'account/reset_password' => 'passwords#update', :as => 'password_reset'
     end
     get 'posts' => 'posts#index', :as => 'posts_all'
     post 'posts' => 'posts#create', :as => 'create_post'
@@ -30,8 +31,6 @@ end
     get 'email/:email_search' => 'pages#email_search', :as => 'email_search', :constraints => { :email_search => /.*/ }
 
     get 'profile' => 'pages#self', :as => 'self'
-
-    post 'account/reset_password' => 'passwords#update', :as => 'password_reset'
 
     match 'like/:id', to: 'likes#like', via: :post
 
