@@ -1,6 +1,7 @@
 class Api::V1::AccountsController < ApplicationController
 
 skip_before_action :authenticate_user!
+skip_before_action :authenticate_scope!
 
 	def reset_password
 		@user = User.find_by(email: params[:email])
@@ -11,5 +12,4 @@ skip_before_action :authenticate_user!
 			render json: {message: 'email does not exists'}
 		end
 	end
-
 end
