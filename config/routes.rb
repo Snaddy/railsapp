@@ -21,9 +21,10 @@ end
       delete 'sessions' => 'sessions#destroy'
     end
     get 'posts' => 'posts#index'
+
     post 'posts' => 'posts#create'
 
-    post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
+    post 'reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
 
     get 'search/:search' => 'pages#search'
 
