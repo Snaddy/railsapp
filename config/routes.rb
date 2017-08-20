@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :relationships, only: [:create, :destroy]
-  get 'user/:id' => "pages#profile"
-  match 'like', to: 'likes#like', via: :post
-  match 'unlike', to: 'likes#unlike', via: :delete
-  devise_for :users, controllers: { confirmations: 'confirmations'}
+  devise_for :users
   resources :users do
     member do
       get :following, :followers
