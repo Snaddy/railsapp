@@ -1,6 +1,11 @@
 class ConfirmationsController < Devise::ConfirmationsController
+  
+def show
+	render ''
+end
+
   private
   def after_confirmation_path_for(resource_name, resource)
-  	redirect_to user_confirmation_path
+    user_confirmation_path
   end
 end

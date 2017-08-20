@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'user/:id' => "pages#profile"
   match 'like', to: 'likes#like', via: :post
   match 'unlike', to: 'likes#unlike', via: :delete
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations'}
   resources :users do
     member do
       get :following, :followers
