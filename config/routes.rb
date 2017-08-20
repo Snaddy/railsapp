@@ -31,6 +31,8 @@ end
 
     get 'profile' => 'pages#self', :as => 'self'
 
+    post 'account/reset_password' => 'passwords#update', :as => 'password_reset'
+
     match 'like/:id', to: 'likes#like', via: :post
 
     match 'unlike/:id', to: 'likes#unlike', via: :delete
