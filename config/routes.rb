@@ -15,7 +15,6 @@ end
       put 'update' => 'registrations#update'
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
-      post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
     end
     get 'posts' => 'posts#index'
 
@@ -38,6 +37,8 @@ end
     match 'relationships/:id', to: 'relationships#destroy', via: :delete
 
     match 'users/:id', to: 'pages#profile', via: :get
+    
+    post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
 
   end
   end
