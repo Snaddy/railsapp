@@ -1,6 +1,6 @@
 class Api::V1::AccountsController < ApplicationController
 
-skip_before_action :authenticate_user!
+skip_before_action :authenticate_api_v1_user!
 
 	def reset_password
 		@user = User.find_by(email: params[:email])
