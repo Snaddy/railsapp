@@ -1,6 +1,6 @@
-class Api::V1::PagesController < ApplicationController
+class Api::V1::PagesController < ActionController::base
 
-before_action :authenticate_user!
+before_action :authenticate_user!, except: [:username_search, :email_search]
 
 	def profile
 		@user = User.find_by(id: params[:id])
@@ -17,11 +17,6 @@ before_action :authenticate_user!
 	def search
 		@results = User.search(params[:search])
 		render json: @results
-	end
-
-	def reset_password
-		@user = current_user
-		@user.send_reset_password_instructions
 	end
 
 	def username_search
