@@ -1,4 +1,4 @@
-class Api::V1::PagesController < ActionController::base
+class Api::V1::PagesController < ActionController::Base
 
 before_action :authenticate_user!, except: [:username_search, :email_search]
 
