@@ -20,11 +20,11 @@ end
 
     post 'posts' => 'posts#create'
 
-    get 'search/:search' => 'pages#search'
+    get 'search/:search' => 'searches#search'
 
-    get 'username/:username_search' => 'pages#username_search', :constraints => { :username_search => /.*/ }
+    get 'username/:username_search' => 'searches#username_search', :constraints => { :username_search => /.*/ }
 
-    get 'email/:email_search' => 'pages#email_search', :constraints => { :email_search => /.*/ }
+    get 'email/:email_search' => 'searches#email_search', :constraints => { :email_search => /.*/ }
 
     get 'profile' => 'pages#self'
 
