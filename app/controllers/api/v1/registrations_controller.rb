@@ -11,7 +11,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                       info: "Registered",
                       auth_token: current_user.authentication_token,
                       email: current_user.email,
-                      user_id: current_user.id
+                      user_id: current_user.id,
                       data: { user: resource }}
       else
         render json: { status: @user.errors.full_messages }
