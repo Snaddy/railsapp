@@ -20,7 +20,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
     def update
       @user = current_user
-        if @user.update(update_params)
+        if @user.update(user_params)
           render json: { result: "success"}
         else
           render json: { result: "error"}
