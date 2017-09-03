@@ -1,6 +1,6 @@
 class Api::V1::SessionsController < Devise::SessionsController
-    skip_before_action :verify_signed_out_user,
-                       :if => Proc.new { |c| c.request.format == 'application/json' }
+    skip_before_action :verify_signed_out_user, only: [:destroy],
+    :if => Proc.new { |c| c.request.format == 'application/json' }
 
   respond_to :json
 
