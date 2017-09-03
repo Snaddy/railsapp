@@ -16,7 +16,7 @@ class Api::V1::SessionsController < Devise::SessionsController
           end
         end
       else
-        render json: { status: @user.errors.full_messages }
+        render json: { status: "error" }
       end
     end
 
