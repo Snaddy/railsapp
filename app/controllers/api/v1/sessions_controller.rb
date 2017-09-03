@@ -11,7 +11,7 @@ class Api::V1::SessionsController < Devise::SessionsController
               status: "success",
               email: current_user.email,
               auth_token: current_user.authentication_token,
-              user_id: current_user.id
+              user_name: current_user.username
             }
           end
         end
