@@ -10,9 +10,7 @@ class Api::V1::SessionsController < Devise::SessionsController
             render json: {
               status: "success",
               email: current_user.email,
-              auth_token: current_user.authentication_token,
-              user_name: current_user.username
-            }
+              auth_token: current_user.authentication_token}
           end
         end
       else
