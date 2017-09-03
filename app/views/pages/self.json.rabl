@@ -1,6 +1,6 @@
 object @user
 
-attributes :id, :username, :name, :avatar, :bio, :email
+attributes :id, :username, :name, :avatar, :bio, :email, :gender
 
 child @posts do
 	attributes :id, :images
