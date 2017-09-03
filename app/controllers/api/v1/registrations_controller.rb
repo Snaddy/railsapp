@@ -14,7 +14,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                       user_name: current_user.username,
                       data: { user: resource }}
       else
-        render json: { status: "error" }
+        render json: { status: user.errors.full_messages }
       end
     end
 
