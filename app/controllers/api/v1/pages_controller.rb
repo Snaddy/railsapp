@@ -16,7 +16,7 @@ before_action :authenticate_user!
 
 	def search
 		@results = User.search(params[:search])
-		render json: @results
+		render 'pages/search'
 	end
-	
+
 end
