@@ -68,8 +68,8 @@ class User < ActiveRecord::Base
    !!self.likes.find_by(post_id: post.id)
   end 
 
-  def search(search)
-    find(:all, conditions: ['username LIKE ? OR name LIKE ?', "%#{search}%"])
+  def self.search(search)
+    User.where(['username LIKE ? OR name LIKE ?', "%#{search}%"])
   end
 
   def self.username_exists?(username)
