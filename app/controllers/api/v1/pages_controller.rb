@@ -13,4 +13,10 @@ before_action :authenticate_user!
 		@posts = @user.posts
 		render 'pages/self'
 	end
+
+	def search
+		@results = User.search(params[:search])
+		render json: @results
+	end
+	
 end

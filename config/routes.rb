@@ -20,7 +20,7 @@ end
 
     post 'posts' => 'posts#create'
 
-    get 'search/:search' => 'searches#search'
+    get 'search/:search' => 'pages#search', :constraints => { :search => /.*/ }
 
     get 'username/:username_search' => 'searches#username_search', :constraints => { :username_search => /.*/ }
 

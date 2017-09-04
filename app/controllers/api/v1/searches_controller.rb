@@ -1,10 +1,5 @@
 class Api::V1::SearchesController < ActionController::Base
 
-	def search
-		@results = User.search(params[:search])
-		render json: @results
-	end
-
 	def username_search
 		@result = User.username_exists?(params[:username_search])
 		render json: {
