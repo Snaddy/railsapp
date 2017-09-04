@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
   end 
 
   def self.search(search)
-    User.where(['username LIKE ? OR name LIKE ?', "%#{search}%"])
+    User.where(['username LIKE ?', "%#{search}%"])
   end
 
   def self.username_exists?(username)
