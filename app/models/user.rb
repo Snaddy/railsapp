@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
    !!self.likes.find_by(post_id: post.id)
   end 
 
-  def self.search(search)
+  def search(search)
     find(:all, conditions: ['username LIKE ? OR name LIKE ?', "%#{search}%"])
   end
 
