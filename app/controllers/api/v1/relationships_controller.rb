@@ -3,7 +3,7 @@ class Api::V1::RelationshipsController < ApplicationController
 	before_action :authenticate_user!
 
 def create
-	@user = User.find_by(followed_id: params[:followed_id])
+	@user = User.find_by(id: params[:id])
 	current_user.follow!(@user)
 end
 
