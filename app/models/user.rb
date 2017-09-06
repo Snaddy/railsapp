@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
   end
 
   #is following
-  def self.following?(other_user)
-    !!self.following.find_by(user_id: other_user.id)
+  def following?(other_user)
+    !!self.following.find_by(id: other_user.id)
   end
 
   def post_count
