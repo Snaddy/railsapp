@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   #is following
-  def following?(other_user)
+  def self.following?(other_user)
     !!self.following.find_by(user_id: other_user.id)
   end
 
