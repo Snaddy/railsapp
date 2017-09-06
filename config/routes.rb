@@ -15,13 +15,11 @@ end
       put 'update' => 'registrations#update'
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
-    end
-
-    resources :users do
       member do
         get :following, :followers
       end
     end
+
     get 'posts' => 'posts#index'
 
     post 'posts' => 'posts#create'
