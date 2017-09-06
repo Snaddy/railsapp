@@ -9,7 +9,7 @@ def create
 end
 
 def destroy
-	@user = Relationship.find_by(follow_id: params[:user_id])
+	@user = Relationship.find_by(followed_id: params[:followed_id])
 	current_user.unfollow!(@user)
 	render json: {status: "unfollowed"}
 end
