@@ -15,9 +15,7 @@ end
       put 'update' => 'registrations#update'
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
-      member do
-        get :following, :followers
-      end
+      get :following, :followers
     end
 
     get 'posts' => 'posts#index'
