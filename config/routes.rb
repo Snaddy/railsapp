@@ -20,6 +20,8 @@ end
 
     get 'posts' => 'posts#index'
 
+    get 'posts/:id' => 'posts#show'
+
     post 'posts' => 'posts#create'
 
     get 'search/:search' => 'pages#search', :constraints => { :search => /.*/ }
