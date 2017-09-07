@@ -2,10 +2,8 @@ object @user
 
 attributes :id, :username, :name, :avatar, :bio
 
-node :posts do
-  @posts.map do |post| 
-    { :id => post.id, :image => post.images }
-  end
+child @posts => :posts do
+	attributes :id, :images
 end
 
 node(:get_posts) {|user| user.post_count}
