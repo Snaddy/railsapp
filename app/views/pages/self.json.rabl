@@ -2,7 +2,7 @@ object @user
 
 attributes :id, :username, :name, :avatar, :bio, :email, :gender
 
-child @posts do
+child @posts => :posts do
 	attributes :id, :images
 end
 
