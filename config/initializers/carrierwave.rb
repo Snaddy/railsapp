@@ -20,7 +20,7 @@ if Rails.env.production?
     :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
   config.fog_directory  = ENV['S3_BUCKET_NAME']
-  config.fog_host       = ENV['CLOUDFRONT_HOST']
+  config.asset_host       = ENV['CLOUDFRONT_HOST']
   config.fog_public     = false                                  
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  
 else
