@@ -24,6 +24,12 @@ end
 
     post 'posts' => 'posts#create'
 
+    post 'comments' => 'comments#create'
+
+    delete 'comments/:id' => 'comments#destroy'
+
+    delete 'post/:id/comment/:id' => 'posts#destroy_comment'
+
     get 'search/:search' => 'pages#search', :constraints => { :search => /.*/ }
 
     get 'username/:username_search' => 'searches#username_search', :constraints => { :username_search => /.*/ }

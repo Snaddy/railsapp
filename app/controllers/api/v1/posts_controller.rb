@@ -28,6 +28,14 @@ class Api::V1::PostsController < ApplicationController
     render 'posts/show'
   end
 
+  def destroy_comment
+    @post = Post.find_by(id: params[:id])
+    @comment = Comement.find_by(id: params[:id])
+    if current_user.id == @post.user_id
+      @comment.destroy
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # Never trust parameters from the scary internet, only allow the white list through.

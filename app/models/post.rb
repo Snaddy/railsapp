@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 	validates_presence_of :images, :speed
 	has_many :users, through: :likes
 	has_many :likes, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	belongs_to :user
 	validates_length_of :caption, :maximum => 1000, :allow_blank => true
 	mount_uploaders :images, ImageUploader
