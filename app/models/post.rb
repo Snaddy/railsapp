@@ -13,6 +13,10 @@ class Post < ActiveRecord::Base
 		self.likes.count
 	end
 
+	def get_comment_count
+		self.comments.count
+	end
+
 	def image_count
 		if images.size > 60
 			errors.add(:images, "can't contain more than 60 images")
