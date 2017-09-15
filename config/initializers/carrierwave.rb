@@ -21,7 +21,7 @@ if Rails.env.production?
   }
   config.fog_directory  = ENV['S3_BUCKET_NAME']
   config.asset_host     = ENV['CLOUDFRONT_HOST']
-  config.fog_public     = false                                  
+  config.fog_public     = true                                  
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  
 else
 	config.storage = :file
