@@ -20,7 +20,7 @@ end
 
     get 'posts' => 'posts#index'
 
-    get 'posts/:id' => 'posts#show'
+    get 'post/:id' => 'posts#show'
 
     post 'posts' => 'posts#create'
 
