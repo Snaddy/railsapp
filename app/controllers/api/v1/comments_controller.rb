@@ -22,7 +22,7 @@ class Api::V1::CommentsController < ApplicationController
 	private
 
    	def comment_params
-        params.permit(:user_id, :post_id, :content)
+        params.permit(:content)
    	end
 
    	def comment_owner
