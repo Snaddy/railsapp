@@ -1,8 +1,8 @@
 class Api::V1::CommentsController < ApplicationController
 
 	def create
-		@post = Post.find_by(id: params[:id])
-		@comment = @post.comments.create(comment_params)
+		@post = Post.find_by(post_id: params[:post_id])
+		@comment = @post.comments.build(comment_params)
 		@comment.user_id = current_user.id
 		if comment.save
 			render json: {status: 'success'}
@@ -23,10 +23,6 @@ class Api::V1::CommentsController < ApplicationController
 
    	def comment_params
         params.permit(:content)
-   	end
-
-   	def comment_owner
-
    	end
 
 end
