@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ApplicationController
 		@post = Post.find_by(id: params[:id])
 		@comment = @post.comments.build(comment_params)
 		@comment.user_id = current_user.id
-		if comment.save
+		if @comment.save
 			render json: {status: 'success'}
 		else
 			render json: {status: 'error'}
