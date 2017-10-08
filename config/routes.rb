@@ -24,7 +24,7 @@ end
 
     post 'posts' => 'posts#create'
 
-    post 'comments' => 'comments#create'
+    post 'post/:id/comments' => 'comments#create'
 
     delete 'comments/:id' => 'comments#destroy'
 
