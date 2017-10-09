@@ -5,7 +5,7 @@ attributes :speed, :caption, :images
 child (:user) {attributes :username, :id, :avatar}
 
 child (:comments) => :comments do
-	attributes :content
+	attributes :id, :content
 	child (:user) {attributes :username, :id, :avatar}
 end
 
