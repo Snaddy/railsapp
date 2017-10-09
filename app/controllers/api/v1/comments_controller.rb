@@ -7,7 +7,7 @@ class Api::V1::CommentsController < ApplicationController
 		if @comment.save
 			render json: {status: 'success'}
 		else
-			render json: {status: 'error'}
+			render json: {status: post.errors.full_messages}
 		end
 	end
 
