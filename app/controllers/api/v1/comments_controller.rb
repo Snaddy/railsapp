@@ -3,7 +3,7 @@ class Api::V1::CommentsController < ApplicationController
 	before_action :find_post
 
 	def create
-		@comment = @post.comments.create(params[:content])
+		@comment = @post.comments.create(comment_params)
 		@comment.user_id = current_user.id
 		if @comment.save
 			render json: {status: 'success'}
