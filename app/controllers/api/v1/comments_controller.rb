@@ -14,7 +14,7 @@ class Api::V1::CommentsController < ApplicationController
 
 	def destroy
 		@comment = Comment.find_by(id: params[:id])
-		if current_user.id = @comment.user_id
+		if current_user.id = @comment.user_id || @post.user_id
 			@comment.destroy
 			render json: {status: 'destroyed'}
 		end
