@@ -6,15 +6,7 @@ class Api::V1::CommentsController < ApplicationController
 		@comment = @post.comments.create(comment_params)
 		@comment.user_id = current_user.id
 		if @comment.save
-			render json: {
-				status: 'success',
-				id: @comment.id,
-				user_id: @comment.user_id,
-				post_id: @comment.post_id,
-				content: @comment.content,
-				username: @comment.username,
-				avatar: @comment.avatar
-			}
+			render 'comments/create'
 		else
 			render json: {status: @comment.errors.full_messages}
 		end
