@@ -9,10 +9,10 @@ class Api::V1::CommentsController < ApplicationController
 			render json: {
 				status: 'success',
 				id: @comment.id,
-				user_id: @comment.user_id
-				post_id: @comment.post_id
-				content: @comment.content
-				username: @comment.username
+				user_id: @comment.user_id,
+				post_id: @comment.post_id,
+				content: @comment.content,
+				username: @comment.username,
 				avatar: @comment.avatar
 			}
 		else
