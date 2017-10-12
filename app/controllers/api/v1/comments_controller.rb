@@ -12,7 +12,7 @@ class Api::V1::CommentsController < ApplicationController
 				user_id: @comment.user_id,
 				post_id: @comment.post_id,
 				content: @comment.content,
-				username: @comment.user.username
+				username: @comment.user.username,
 				avatar: @comment.user.avatar
 			}
 		else
