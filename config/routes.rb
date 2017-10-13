@@ -26,6 +26,10 @@ end
 
     post 'post/:post_id/comments/:content' => 'comments#create'
 
+    delete 'post/:id' => 'posts#destroy'
+
+    put 'post/update/:id' => 'posts#update'
+
     delete 'post/:post_id/comments/:id' => 'comments#destroy'
 
     get 'search/:search' => 'pages#search', :constraints => { :search => /.*/ }

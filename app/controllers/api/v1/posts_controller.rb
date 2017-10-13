@@ -23,6 +23,27 @@ class Api::V1::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id = current_user.id
+        @post.destroy
+        render json: {
+          status: "destroyed"
+        }
+    end
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id = current_user.id
+      if @post.update(update_params)
+        render :json {
+          status: "success"
+        }
+      end
+    end
+  end
+
   def show
     @post = Post.find_by(id: params[:id])
     render 'posts/show'
@@ -33,5 +54,9 @@ class Api::V1::PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.permit(:speed, :caption, {images: []})
+    end
+
+    def edit_params
+      params.permit(:speed, :caption)
     end
 end
