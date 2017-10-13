@@ -36,11 +36,10 @@ class Api::V1::PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     if @post.user_id = current_user.id
-      if @post.update(update_params)
+      @post.update(update_params)
         render :json {
           status: "success"
         }
-      end
     end
   end
 
