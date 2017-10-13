@@ -26,20 +26,22 @@ class Api::V1::PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     if @post.user_id = current_user.id
-        @post.destroy
-        render json: {
-          status: "destroyed"
-        }
+        if @post.destroy
+          render json: {
+            status: "destroyed"
+          }
+        end
     end
   end
 
   def update
     @post = Post.find_by(id: params[:id])
     if @post.user_id = current_user.id
-      @post.update(update_params)
-        render :json {
+      if @post.update(update_params)
+        render json: {
           status: "success"
         }
+      end
     end
   end
 
