@@ -28,7 +28,7 @@ end
 
     delete 'post/:id' => 'posts#destroy'
 
-    put 'post/update/:id' => 'posts#update'
+    put 'post/:id/update' => 'posts#update'
 
     delete 'post/:post_id/comments/:id' => 'comments#destroy'
 
