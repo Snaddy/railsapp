@@ -39,7 +39,8 @@ class Api::V1::PostsController < ApplicationController
     if @post.user_id = current_user.id
       if @post.update(update_params)
         render json: {
-          status: "success"
+          status: "success",
+          caption: @post.caption
         }
       end
     end
