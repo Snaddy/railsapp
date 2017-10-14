@@ -57,7 +57,7 @@ class Api::V1::PostsController < ApplicationController
       params.permit(:speed, :caption, {images: []})
     end
 
-    def edit_params
-      params.permit(:speed, :caption)
+    def update_params
+      params.permit(:caption)
     end
 end
