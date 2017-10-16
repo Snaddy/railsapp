@@ -91,4 +91,11 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/, multiline: true
   validates :username, length: {in: 1..20}
   validates :name, length: {in: 1..30}
+
+  protected
+    
+    def confirmation_required?
+      false
+    end
+
 end
