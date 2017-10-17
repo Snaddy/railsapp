@@ -4,7 +4,7 @@ before_action :authenticate_user!
 
 	def profile
 		@user = User.find_by(id: params[:id])
-		if !@user.blocking?(current_user)
+		if !current_user.blocked?(@user)
 			@posts = @user.posts.order('created_at DESC')
 		end
 		render 'pages/profile'

@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
     active_blocks.find_by(blocking_id: other_user.id).destroy!
   end
 
-  def blocking?(other_user)
-    !!self.blocking.find_by(id: other_user.id)
+  def blocked?(other_user)
+    !!self.blocked.find_by(id: other_user.id)
   end
 
   def post_count
