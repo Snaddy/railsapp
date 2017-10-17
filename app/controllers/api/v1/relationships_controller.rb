@@ -14,4 +14,20 @@ def destroy
 	render json: {status: "unfollowed"}
 end
 
+def following
+	@user = User.find_by(id: params[:id])
+	@following = @user.following
+	render json: {
+		followers: @following
+	}
+end
+
+def followers
+	@user = User.find_by(id: params[:id])
+	@followers = @user.followers
+	render json: {
+		followers: @followers
+	}
+end
+
 end

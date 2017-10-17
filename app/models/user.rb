@@ -10,14 +10,18 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  #relationships
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  
   has_many :following, through: :active_relationships, source: :followed
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-
+  #people the user has blocked
+  has_many :active_blocks, class_name: "Blocks", foreign_key: "user_id", dependent: :destroy
+  has_many :blocking, through: :active_blocks, source: :user 
+  #people who have blocked user
+  has_many :passive_blocks, class_name: "Blocks", foreign_key: "blocking_id", dependent: :destroy
+  has_many :blocked, through: :passive_blocks, source: :blocking
   #user methods
-
   #follow
   def follow!(other_user)
     active_relationships.create(followed_id: other_user.id)
@@ -31,6 +35,18 @@ class User < ActiveRecord::Base
   #is following
   def following?(other_user)
     !!self.following.find_by(id: other_user.id)
+  end
+
+  def block!(other_user)
+    active_blocks.create(blocking_id: other_user.id)
+  end
+
+  def unblock!(other_user)
+    active_blocks.find_by(blocking_id: other_user.id).destroy!
+  end
+
+  def blocking?
+    !!self.blocking.find_by(id: other_user.id)
   end
 
   def post_count
@@ -91,11 +107,5 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /^([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)$/, multiline: true
   validates :username, length: {in: 1..20}
   validates :name, length: {in: 1..30}
-
-  protected
-    
-    def confirmation_required?
-      false
-    end
 
 end

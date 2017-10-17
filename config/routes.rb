@@ -52,6 +52,16 @@ end
     
     post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
 
+    post 'blocks/:id' => 'blocks#create'
+
+    delete 'blocks/:id' => 'blocks#destroy'
+
+    get 'blocks' => 'blocks#blocks'
+
+    get 'followers/:id' => 'followers#relationships'
+
+    get 'following/:id' => 'following#relationships'
+
   end
   end
 end

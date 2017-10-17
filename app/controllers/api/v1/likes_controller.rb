@@ -22,4 +22,12 @@ def unlike
     }
 end
 
+def get_likes
+  @post = Post.find_by(id: params[:id])
+  @likes = @post.likes
+  render json: {
+    likes: @likes
+  }
+end
+
 end
