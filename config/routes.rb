@@ -52,9 +52,9 @@ end
     
     post 'account/reset_password/:email' => 'accounts#reset_password', :constraints => { :email => /.*/ }
 
-    post 'blocks/:id' => 'blocks#create'
+    post 'block/:id' => 'blocks#create'
 
-    delete 'blocks/:id' => 'blocks#destroy'
+    delete 'block/:id' => 'blocks#destroy'
 
     get 'blocks' => 'blocks#blocks'
 
