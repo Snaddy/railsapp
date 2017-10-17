@@ -14,4 +14,4 @@ node(:get_followers) {|user| user.followers_count}
 
 node(:is_following) {|user| current_user.following?(user)}
 
-node(:is_blocked) {|user| current_user.blocking?(user)}
+node(:is_blocked) {|user| current_user.blocked?(user)}
