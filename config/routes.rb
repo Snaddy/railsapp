@@ -62,6 +62,8 @@ end
 
     get 'following/:id' => 'following#relationships'
 
+    get 'likes/:id' => 'likes#likes'
+
   end
   end
 end
