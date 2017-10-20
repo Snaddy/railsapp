@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
   #people the user has blocked
   has_many :active_blocks, class_name: "Block", foreign_key: "user_id", dependent: :destroy
-  has_many :blocking, through: :active_blocks, source: :user 
+  has_many :blocking, through: :active_blocks, source: :blocking 
   #people who have blocked user
   has_many :passive_blocks, class_name: "Block", foreign_key: "blocking_id", dependent: :destroy
-  has_many :blocked, through: :passive_blocks, source: :blocking
+  has_many :blocked, through: :passive_blocks, source: :user
   #user methods
   #follow
   def follow!(other_user)
