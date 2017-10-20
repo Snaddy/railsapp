@@ -49,10 +49,6 @@ class User < ActiveRecord::Base
     !!self.blocking.find_by(id: other_user.id)
   end
 
-  def blocked?(other_user)
-    !!self.blocked.find_by(id: other_user.id)
-  end
-
   def post_count
     self.posts.count
   end
