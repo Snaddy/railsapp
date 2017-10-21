@@ -17,12 +17,12 @@ end
 def following
 	@user = User.find_by(id: params[:id])
 	@following = @user.following
-	render json: @following
+	render json: {@following}
 
 def followers
 	@user = User.find_by(id: params[:id])
 	@followers = @user.followers
-	render json: @followers
+	render json: {@followers}
 end
 
 end
