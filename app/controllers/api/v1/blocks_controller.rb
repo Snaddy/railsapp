@@ -18,9 +18,7 @@ class Api::V1::BlocksController < ApplicationController
 	def blocks
 		@user = User.find_by(id: params[:id])
 		@blocks = @user.blocking
-		render json: {
-			followers: @blocks
-		}
+		render json: @blocks
 	end
 
 end
