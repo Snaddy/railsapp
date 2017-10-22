@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @user = current_user
-    @posts = current_user.feed.paginate(page: params[:page], per_page: 15).order('created_at DESC')
+    @posts = current_user.feed.paginate(page: params[:page], per_page: 8).order('created_at DESC')
     render 'posts/index'
   end
 
