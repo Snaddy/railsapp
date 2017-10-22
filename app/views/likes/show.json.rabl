@@ -1,4 +1,4 @@
-collection @blocks
+collection @likes
 
 attributes :id
 
