@@ -24,7 +24,7 @@ end
 
 def likes
   @post = Post.find_by(id: params[:id])
-  @likes = @post.likes.paginate(page: params[:page], per_page: 15)
+  @likes = @post.likes
   render 'lists/likes'
 end
 

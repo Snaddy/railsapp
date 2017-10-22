@@ -17,7 +17,7 @@ class Api::V1::BlocksController < ApplicationController
 
 	def blocks
 		@user = current_user
-		@users = @user.blocking.paginate(page: params[:page], per_page: 15)
+		@users = @user.blocking
 		render 'lists/users'
 	end
 
