@@ -1,13 +1,8 @@
 object @post
 
-attributes :speed, :caption, :images
+attributes :id, :speed, :caption, :images
 
 child (:user) {attributes :username, :id, :avatar}
-
-child (:comments) => :comments do
-	attributes :id, :content
-	child (:user) {attributes :username, :id, :avatar}
-end
 
 node(:liked) {|post| current_user.like?(post)}
 

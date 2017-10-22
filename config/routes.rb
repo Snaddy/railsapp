@@ -18,7 +18,7 @@ end
       get :following, :followers
     end
 
-    get 'posts' => 'posts#index'
+    get 'posts/:page' => 'posts#index'
 
     get 'post/:id' => 'posts#show'
 
@@ -58,15 +58,15 @@ end
 
     get 'blocks' => 'blocks#blocks'
 
-    get 'followers/:id' => 'relationships#followers'
+    get 'followers/:id/:page' => 'relationships#followers'
 
-    get 'followings/:id' => 'relationships#following'
+    get 'followings/:id/:page' => 'relationships#following'
 
-    get 'profile/followers' => 'relationships#current_user_followers'
+    get 'profile/followers/:page' => 'relationships#current_user_followers'
 
-    get 'profile/following' => 'relationships#current_user_following'
+    get 'profile/following/:page' => 'relationships#current_user_following'
 
-    get 'likes/:id' => 'likes#likes'
+    get 'likes/:id/:page' => 'likes#likes'
 
   end
   end
