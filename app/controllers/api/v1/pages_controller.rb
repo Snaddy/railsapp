@@ -5,14 +5,14 @@ before_action :authenticate_user!
 	def profile
 		@user = User.find_by(id: params[:id])
 		if !@user.blocking?(current_user)
-			@posts = @user.posts.order('created_at DESC')
+			@posts = @user.posts.paginate(page: params[:page], per_page: 15).order('created_at DESC')
 		end
 		render 'pages/profile'
 	end
 
 	def self
 		@user = current_user
-		@posts = @user.posts.order('created_at DESC')
+		@posts = @user.posts.paginate(page: params[:page], per_page: 15).order('created_at DESC')
 		render 'pages/self'
 	end
 
