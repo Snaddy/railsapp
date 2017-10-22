@@ -58,13 +58,13 @@ end
 
     get 'blocks' => 'blocks#blocks'
 
-    get 'followers/:id' => 'followers#relationships'
+    get 'followers/:id' => 'relationships#followers'
 
-    get 'following/:id' => 'following#relationships'
+    get 'following/:id' => 'relationships#following'
 
-    get 'profile/followers' => 'current_user_followers#relationships'
+    get 'profile/followers' => 'relationships#current_user_followers'
 
-    get 'profile/following' => 'current_user_following#relationships'
+    get 'profile/following' => 'relationships#current_user_following'
 
     get 'likes/:id' => 'likes#likes'
 
