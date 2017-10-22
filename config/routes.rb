@@ -62,6 +62,10 @@ end
 
     get 'following/:id' => 'following#relationships'
 
+    get 'profile/followers/:id' => 'current_user_followers#relationships'
+
+    get 'profile/following/:id' => 'current_user_following#relationships'
+
     get 'likes/:id' => 'likes#likes'
 
   end

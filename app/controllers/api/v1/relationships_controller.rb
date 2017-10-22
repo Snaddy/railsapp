@@ -30,4 +30,21 @@ def followers
 	}
 end
 
+#lazy af change later at some point idc
+def current_user_following
+	@user = current_user
+	@following = @user.following
+	render json: {
+		list: @following
+	}
+end
+
+def current_user_followers
+	@user = current_user
+	@followers = @user.followers
+	render json: {
+		list: @followers
+	}
+end
+
 end
