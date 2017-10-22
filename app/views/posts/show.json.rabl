@@ -1,6 +1,6 @@
 object @post
 
-attributes :speed, :caption, :images
+attributes :id, :speed, :caption, :images
 
 child (:user) {attributes :username, :id, :avatar}
 
