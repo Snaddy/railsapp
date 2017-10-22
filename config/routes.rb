@@ -18,7 +18,7 @@ end
       get :following, :followers
     end
 
-    get 'posts/:page' => 'posts#index'
+    get 'posts' => 'posts#index'
 
     get 'post/:id' => 'posts#show'
 

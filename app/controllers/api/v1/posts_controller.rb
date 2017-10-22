@@ -48,13 +48,7 @@ class Api::V1::PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    render json: { post: @post }
-  end
-
-  def get_comments
-    @post = Post.find_by(id: params[:id])
-    @comments = @post.comments.paginate(page: params[:page], per_page: 10).order('created_at ASC')
-    render 'posts/comments'
+    render 'posts/show'
   end
 
   private
