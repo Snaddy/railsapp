@@ -1,5 +1,5 @@
 collection @posts
-attributes :id, :speed, :caption, :images, :current_page
+attributes :id, :speed, :caption, :images
 
 child (:user) {attributes :username, :id, :avatar}
 
