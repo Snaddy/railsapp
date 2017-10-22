@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'will_paginate', '~> 3.1.0'
-
 gem 'rabl'
 
 gem 'fog-aws'
