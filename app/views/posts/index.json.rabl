@@ -10,5 +10,3 @@ node(:get_likes_count) {|post| post.get_likes_count}
 node(:get_comment_count) {|post| post.get_comment_count}
 
 node(:posted) {|post| post.created_at.to_i}
-
-node(:current_page) {|post| post.current_page}

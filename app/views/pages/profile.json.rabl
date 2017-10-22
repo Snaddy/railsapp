@@ -4,7 +4,6 @@ attributes :id, :username, :name, :avatar, :bio
 
 child @posts => :posts do
 	attributes :id, :images
-	node(:current_page) {|post| post.current_page}
 end
 
 node(:get_posts) {|user| user.post_count}

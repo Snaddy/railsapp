@@ -30,6 +30,7 @@ end
 def current_user_following
 	@user = current_user
 	@users = @user.following
+	render 'lists/users'
 end
 
 def current_user_followers
