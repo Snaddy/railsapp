@@ -48,7 +48,7 @@ class Api::V1::PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
-    render 'posts/show'
+    render json: { @post }
   end
 
   def get_comments
