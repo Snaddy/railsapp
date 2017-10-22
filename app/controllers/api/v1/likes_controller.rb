@@ -25,7 +25,7 @@ end
 def likes
   @post = Post.find_by(id: params[:id])
   @likes = @post.likes
-  render 'lists/likes'
+  render 'likes/show'
 end
 
 end

@@ -17,8 +17,10 @@ class Api::V1::BlocksController < ApplicationController
 
 	def blocks
 		@user = current_user
-		@users = @user.blocking
-		render 'lists/users'
+		@blocks = @user.blocking
+		render json: {
+			list: @blocks
+		}
 	end
 
 end

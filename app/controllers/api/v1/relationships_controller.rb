@@ -16,27 +16,35 @@ end
 
 def following
 	@user = User.find_by(id: params[:id])
-	@users = @user.following
-	render 'lists/users'
+	@following = @user.following
+	render json: {
+		list: @following
+	}
 end
 
 def followers
 	@user = User.find_by(id: params[:id])
-	@users = @user.followers
-	render 'lists/users'
+	@followers = @user.followers
+	render json: {
+		list: @followers
+	}
 end
 
 #lazy af change later at some point idc
 def current_user_following
 	@user = current_user
-	@users = @user.following
-	render 'lists/users'
+	@following = @user.following
+	render json: {
+		list: @following
+	}
 end
 
 def current_user_followers
 	@user = current_user
-	@users = @user.followers
-	render 'lists/users'
+	@followers = @user.followers
+	render json: {
+		list: @followers
+	}
 end
 
 end
