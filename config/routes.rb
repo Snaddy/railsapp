@@ -22,6 +22,8 @@ end
 
     get 'post/:id' => 'posts#show'
 
+    get 'post/:id/comments' => 'posts#get_comments' 
+
     post 'posts' => 'posts#create'
 
     post 'post/:post_id/comments/:content' => 'comments#create'
@@ -39,6 +41,12 @@ end
     get 'email/:email_search' => 'searches#email_search', :constraints => { :email_search => /.*/ }
 
     get 'profile' => 'pages#self'
+
+    get 'profile/posts' => 'pages#get_self_posts'
+
+    get 'users/:id' => 'pages#profile'
+
+    get 'user/:id/posts' => 'pages#get_user_posts'
 
     match 'like/:id', to: 'likes#like', via: :post
 
