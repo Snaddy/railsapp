@@ -24,7 +24,7 @@ before_action :authenticate_user!
 	def get_self_posts
 		@user = current_user
 		@posts = @user.posts.paginate(page: params[:page], per_page: 15).order('created_at DESC')
-		render 'pages#get_self_posts'
+		render 'pages/get_self_posts'
 	end
 
 	def search
